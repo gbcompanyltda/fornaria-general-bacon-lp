@@ -1,4 +1,5 @@
 :root {
+  --header-h: 64px;
   --paper: #f3e8d3;
   --paper-2: #eadcc1;
   --ink: #241811;
@@ -54,6 +55,7 @@ body{
   line-height:1.55;
   -webkit-font-smoothing:antialiased;
   padding-inline:20px;
+  padding-top:var(--header-h);
 }
 @media (min-width:640px){ body{padding-inline:32px;} }
 
@@ -105,17 +107,21 @@ section:last-of-type{ border-bottom:none; }
 
 /* ---------- HEADER ---------- */
 header.site{
-  position:sticky; top:0; z-index:40;
+  position:fixed; top:0; left:0; right:0; z-index:40;
   background:color-mix(in srgb, var(--surface) 88%, transparent);
   backdrop-filter: blur(8px);
   border-bottom:1px solid var(--border);
-  margin-inline:-20px; padding-inline:20px;
+  padding-inline:20px;
 }
-@media (min-width:640px){ header.site{margin-inline:-32px; padding-inline:32px;} }
+@supports not (backdrop-filter: blur(8px)){
+  header.site{ background:var(--surface); }
+}
+@media (min-width:640px){ header.site{ padding-inline:32px; } }
 .nav-row{
   max-width:1180px; margin-inline:auto;
   display:flex; align-items:center; justify-content:space-between;
   padding-block:14px; gap:16px;
+  min-height:var(--header-h);
 }
 .brandmark{ display:flex; align-items:center; gap:.6em; text-decoration:none; }
 .brandmark .ribbon{
@@ -310,4 +316,4 @@ footer{ padding-block:44px 110px; }
 
 @media (prefers-reduced-motion: reduce){ *{ scroll-behavior:auto !important; } }
 html{ scroll-behavior:smooth; }
-section[id]{ scroll-margin-top:76px; }
+section[id]{ scroll-margin-top:calc(var(--header-h) + 16px); }
