@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import PageSkeleton from "./page-skeleton";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -151,6 +152,35 @@ const jsonLd = {
   },
 };
 
+// Roda o quanto antes no <head>: espera as fontes (document.fonts.ready) para
+// só então revelar o conteúdo real, evitando FOUT/FOIT. Enquanto isso, o
+// skeleton (renderizado no HTML, sem JS) fica visível. Timeout de segurança
+// caso a Font Loading API não resolva.
+const FONTS_READY_SCRIPT = `
+(function () {
+  var root = document.documentElement;
+  var done = false;
+  function reveal() {
+    if (done) return;
+    done = true;
+    root.classList.remove("preload");
+  }
+  function waitForFonts() {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(reveal).catch(reveal);
+    } else {
+      reveal();
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", waitForFonts);
+  } else {
+    waitForFonts();
+  }
+  setTimeout(reveal, 2200);
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -158,7 +188,8 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       data-theme="dark"
-      className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable}`}
+      className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable} preload`}
+      suppressHydrationWarning
     >
       <head>
         <script
@@ -166,8 +197,18 @@ export default function RootLayout({
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: FONTS_READY_SCRIPT }}
+        />
+        <noscript>
+          <style>{`#site-skeleton{display:none!important}`}</style>
+        </noscript>
       </head>
-      <body>{children}</body>
+      <body>
+        <PageSkeleton />
+        <div id="site-content">{children}</div>
+      </body>
     </html>
   );
 }

@@ -47,7 +47,19 @@
 }
 
 *{box-sizing:border-box;}
-html{-webkit-text-size-adjust:100%;}
+html{
+  -webkit-text-size-adjust:100%;
+  scrollbar-width:thin;
+  scrollbar-color: var(--accent) transparent;
+}
+html::-webkit-scrollbar{ width:9px; height:9px; }
+html::-webkit-scrollbar-track{ background:transparent; }
+html::-webkit-scrollbar-thumb{ background:var(--accent); border-radius:99px; }
+html::-webkit-scrollbar-thumb:hover{ background:var(--accent-strong); }
+@media (max-width:760px){
+  html{ scrollbar-width:none; }
+  html::-webkit-scrollbar{ display:none; }
+}
 body{
   margin:0;
   background:var(--surface);
@@ -332,6 +344,12 @@ footer{ padding-block:44px; }
 }
 .gb-modal-close:hover{ color:var(--accent); border-color:var(--accent); }
 
+.gb-modal-banner{
+  width:100%; aspect-ratio:1200/350; overflow:hidden;
+  border-radius:6px 6px 0 0;
+}
+.gb-modal-banner img{ width:100%; height:100%; object-fit:cover; }
+
 .gb-modal-head{
   display:flex; align-items:center; gap:14px;
   padding:24px 26px; border-bottom:1px solid var(--border);
@@ -369,3 +387,71 @@ footer{ padding-block:44px; }
 }
 html{ scroll-behavior:smooth; }
 section[id]{ scroll-margin-top:calc(var(--header-h) + 16px); }
+
+/* ---------- LOADING SKELETON / FONT REVEAL ----------
+   O conteúdo real (#site-content) sempre renderiza normalmente por baixo;
+   só o skeleton (opaco, por cima) some quando as fontes terminam de carregar.
+   Evita o "fantasma" de um crossfade com as duas camadas semitransparentes
+   ao mesmo tempo. */
+html.preload body{ overflow:hidden; }
+
+#site-skeleton{
+  position:fixed; inset:0; z-index:9999;
+  overflow-y:auto; overflow-x:hidden;
+  background:var(--surface);
+  opacity:1;
+  transition:opacity .3s ease;
+}
+html:not(.preload) #site-skeleton{
+  opacity:0;
+  pointer-events:none;
+}
+@media (prefers-reduced-motion: reduce){
+  #site-content, #site-skeleton{ transition:none; }
+}
+
+.sk-header{
+  border-bottom:1px solid var(--border);
+  padding-inline:20px;
+}
+@media (min-width:640px){ .sk-header{ padding-inline:32px; } }
+.sk-header .nav-row{
+  max-width:1180px; margin-inline:auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding-block:14px; gap:16px; min-height:var(--header-h);
+}
+.sk-navlinks{ display:flex; gap:26px; }
+@media (max-width:760px){ .sk-navlinks{ display:none; } }
+
+.sk-wrap{ padding-top:52px; }
+
+.sk{
+  display:inline-block;
+  width:100%; height:1em;
+  border-radius:4px;
+  background:linear-gradient(
+    100deg,
+    color-mix(in srgb, var(--text) 12%, var(--surface-2)) 30%,
+    color-mix(in srgb, var(--text) 26%, var(--surface-2)) 46%,
+    color-mix(in srgb, var(--text) 12%, var(--surface-2)) 62%
+  );
+  background-size:200% 100%;
+  animation:sk-shimmer 1.6s ease-in-out infinite;
+}
+@keyframes sk-shimmer{
+  0%{ background-position:160% 0; }
+  100%{ background-position:-40% 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .sk{ animation:none; }
+}
+.sk-brand{ width:150px; height:1.2rem; border-radius:2px; }
+.sk-btn{ height:2.6em; border-radius:3px; }
+.sk-title{ border-radius:2px; display:block; }
+.sk-line{ display:block; }
+.sk-photo{
+  width:100%; height:auto; aspect-ratio:4/5;
+  border-radius:2px; display:block;
+}
+
+.sk-footer{ padding-block:44px; }

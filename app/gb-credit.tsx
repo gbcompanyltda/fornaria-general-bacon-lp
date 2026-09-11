@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const ICON = `${BASE_PATH}/images/gbco-icon.png`;
+const BANNER = `${BASE_PATH}/images/gbco-banner.png`;
 
-const GB_SITE = "https://gbcompanyltda.github.io/gbcompany-landingpage/";
+const GB_SITE = "https://gbcompany-landingpage.vercel.app/";
 const GB_WHATSAPP_NUMBER = "5511930968872";
 const GB_WHATSAPP_DISPLAY = "(11) 93096-8872";
 const GB_WHATSAPP_URL = `https://wa.me/${GB_WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -74,6 +75,15 @@ export default function GbCredit() {
           >
             &times;
           </button>
+
+          <div className="gb-modal-banner">
+            <img
+              src={BANNER}
+              alt="GB Company — Tecnologia que Impulsiona"
+              width={1200}
+              height={350}
+            />
+          </div>
 
           <div className="gb-modal-head">
             <img src={ICON} alt="" width={44} height={44} aria-hidden="true" />
