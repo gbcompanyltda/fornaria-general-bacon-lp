@@ -112,6 +112,12 @@ header.site{
   backdrop-filter: blur(8px);
   border-bottom:1px solid var(--border);
   padding-inline:20px;
+  transition:transform .28s ease;
+  will-change:transform;
+}
+header.site.is-hidden{ transform:translateY(-100%); }
+@media (prefers-reduced-motion: reduce){
+  header.site{ transition:none; }
 }
 @supports not (backdrop-filter: blur(8px)){
   header.site{ background:var(--surface); }

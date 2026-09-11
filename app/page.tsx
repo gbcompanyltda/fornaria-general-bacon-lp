@@ -1,3 +1,5 @@
+import SiteHeader from "./site-header";
+
 const WHATSAPP_URL = "https://wa.me/5582991741699";
 const MAPS_URL =
   "https://www.google.com/maps/place/Fornaria+Pizzaria+%26+General+Bacon/@-9.1887895,-35.3139382,19z/data=!4m6!3m5!1s0x701470038973acf:0xfceed5347215c7d2!8m2!3d-9.1889386!4d-35.3138771!16s%2Fg%2F11y2yhhd10";
@@ -6,28 +8,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/fornariaegeneralbaconpatacho/";
 export default function Home() {
   return (
     <>
-      <header className="site">
-        <div className="nav-row">
-          <a className="brandmark" href="#top">
-            <span className="ribbon">
-              Fornaria <b>&amp; General Bacon</b>
-            </span>
-          </a>
-          <nav className="links">
-            <a href="#cardapio">Cardápio</a>
-            <a href="#avaliacoes">Avaliações</a>
-            <a href="#localizacao">Localização</a>
-          </nav>
-          <a
-            className="btn btn-solid"
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener"
-          >
-            WhatsApp
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="wrap" id="top">
         <section className="hero" aria-labelledby="hero-title">
