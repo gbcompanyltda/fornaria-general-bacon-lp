@@ -1,5 +1,8 @@
 import SiteHeader from "./site-header";
 
+const ASSET_PREFIX = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const asset = (path: string) => `${ASSET_PREFIX}${path}`;
+
 const WHATSAPP_URL = "https://wa.me/5582991741699";
 const MAPS_URL =
   "https://www.google.com/maps/place/Fornaria+Pizzaria+%26+General+Bacon/@-9.1889386,-35.3138771,18z/data=!4m6!3m5!1s0x701470038973acf:0xfceed5347215c7d2!8m2!3d-9.1889386!4d-35.3138771!16s%2Fg%2F11y2yhhd10";
@@ -55,7 +58,7 @@ export default function Home() {
           <div className="hero-photo">
             <div className="frame">
               <img
-                src="/images/hero-facade.jpg"
+                src={asset("/images/hero-facade.jpg")}
                 alt="Fachada da Fornaria Pizzaria & General Bacon, com as placas General Bacon e Fornaria Pizzaria, mesas de madeira e plantas tropicais na entrada"
                 width={900}
                 height={1080}
@@ -133,7 +136,7 @@ export default function Home() {
           <figure className="story-photo">
             <div className="frame">
               <img
-                src="/images/dish-picanha.jpg"
+                src={asset("/images/dish-picanha.jpg")}
                 alt="Picanha argentina fatiada na tábua, acompanhada de feijão tropeiro, servida na Fornaria Pizzaria & General Bacon"
                 width={800}
                 height={560}
@@ -342,7 +345,7 @@ export default function Home() {
             <div className="menu-photo-card">
               <div className="frame">
                 <img
-                  src="/images/cardapio-burguers.jpg"
+                  src={asset("/images/cardapio-burguers.jpg")}
                   alt="Página do cardápio impresso da Fornaria Pizzaria com a lista de burguers artesanais e preços"
                   width={645}
                   height={635}

@@ -157,6 +157,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
+      data-theme="dark"
       className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable}`}
     >
       <head>
