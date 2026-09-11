@@ -1,4 +1,5 @@
 import SiteHeader from "./site-header";
+import GbCredit from "./gb-credit";
 
 const ASSET_PREFIX = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const asset = (path: string) => `${ASSET_PREFIX}${path}`;
@@ -597,10 +598,13 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <p className="foot-copy">
-          © 2026 Fornaria Pizzaria &amp; General Bacon · Forno a lenha, brasa
-          e fumê na Rota dos Milagres.
-        </p>
+        <div className="foot-bottom">
+          <p className="foot-copy">
+            © 2026 Fornaria Pizzaria &amp; General Bacon · Forno a lenha, brasa
+            e fumê na Rota dos Milagres.
+          </p>
+          <GbCredit />
+        </div>
       </footer>
     </>
   );
