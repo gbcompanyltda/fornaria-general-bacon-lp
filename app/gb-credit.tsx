@@ -79,7 +79,6 @@ export default function GbCredit() {
             <img src={ICON} alt="" width={44} height={44} aria-hidden="true" />
             <div>
               <strong>GB Company</strong>
-              <span>Software sob medida</span>
             </div>
           </div>
 
