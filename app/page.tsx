@@ -2,7 +2,7 @@ import SiteHeader from "./site-header";
 
 const WHATSAPP_URL = "https://wa.me/5582991741699";
 const MAPS_URL =
-  "https://www.google.com/maps/place/Fornaria+Pizzaria+%26+General+Bacon/@-9.1887895,-35.3139382,19z/data=!4m6!3m5!1s0x701470038973acf:0xfceed5347215c7d2!8m2!3d-9.1889386!4d-35.3138771!16s%2Fg%2F11y2yhhd10";
+  "https://www.google.com/maps/place/Fornaria+Pizzaria+%26+General+Bacon/@-9.1889386,-35.3138771,18z/data=!4m6!3m5!1s0x701470038973acf:0xfceed5347215c7d2!8m2!3d-9.1889386!4d-35.3138771!16s%2Fg%2F11y2yhhd10";
 const INSTAGRAM_URL = "https://www.instagram.com/fornariaegeneralbaconpatacho/";
 
 export default function Home() {
@@ -13,9 +13,6 @@ export default function Home() {
       <main className="wrap" id="top">
         <section className="hero" aria-labelledby="hero-title">
           <div>
-            <p className="eyebrow">
-              Rota Ecológica dos Milagres · Porto de Pedras, AL
-            </p>
             <h1 id="hero-title">
               <span className="hero-sign">
                 <span className="l1">Fornaria Pizzaria</span>
@@ -84,31 +81,27 @@ export default function Home() {
               </h2>
             </div>
             <p>
-              Na AL-101, entre Barra de Camaragibe e São Miguel dos Milagres —
+              Na AL-101, entre São Miguel dos Milagres e Porto de Pedras —
               quem segue pro litoral norte passa praticamente na porta.
             </p>
           </div>
           <div className="road" role="list">
             <div className="stop" role="listitem">
               <div className="dot" />
-              <span>Barra de Camaragibe</span>
-            </div>
-            <div className="stop here" role="listitem">
-              <span className="pin">você está aqui</span>
-              <div className="dot" />
-              <span>Porto de Pedras</span>
-            </div>
-            <div className="stop" role="listitem">
-              <div className="dot" />
-              <span>Praia do Patacho</span>
+              <span>São Miguel dos Milagres</span>
             </div>
             <div className="stop" role="listitem">
               <div className="dot" />
               <span>Tatuamunha</span>
             </div>
+            <div className="stop here" role="listitem">
+              <span className="pin">nós estamos aqui</span>
+              <div className="dot" />
+              <span>Praia do Patacho</span>
+            </div>
             <div className="stop" role="listitem">
               <div className="dot" />
-              <span>São Miguel dos Milagres</span>
+              <span>Porto de Pedras</span>
             </div>
           </div>
         </section>
@@ -550,67 +543,13 @@ export default function Home() {
             </div>
 
             <div className="map-card">
-              <svg
-                className="map-svg"
-                viewBox="0 0 360 220"
-                role="img"
-                aria-label="Mapa esquemático da AL-101 mostrando a Fornaria entre Barra de Camaragibe e Praia do Patacho"
-              >
-                <rect x="0" y="0" width="360" height="220" fill="var(--surface)" />
-                <path
-                  d="M20 190 C 90 150, 120 90, 190 70 S 300 40, 340 20"
-                  fill="none"
-                  stroke="var(--border)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M20 190 C 90 150, 120 90, 190 70 S 300 40, 340 20"
-                  fill="none"
-                  stroke="var(--text-muted)"
-                  strokeWidth="1.4"
-                  strokeDasharray="1 10"
-                  strokeLinecap="round"
-                  opacity=".7"
-                />
-                <g fontFamily="var(--font-mono), monospace" fontSize="9" fill="var(--text-muted)">
-                  <circle cx="20" cy="190" r="4" fill="var(--text-muted)" />
-                  <text x="30" y="193">
-                    Barra de Camaragibe
-                  </text>
-                  <circle cx="190" cy="70" r="4" fill="var(--accent-2)" />
-                  <text x="200" y="73">
-                    Praia do Patacho
-                  </text>
-                  <circle cx="340" cy="20" r="4" fill="var(--text-muted)" />
-                  <text x="290" y="34">
-                    S. Miguel dos Milagres
-                  </text>
-                </g>
-                <g>
-                  <circle cx="150" cy="105" r="8" fill="var(--accent)" />
-                  <circle cx="150" cy="105" r="14" fill="var(--accent)" opacity=".22" />
-                  <text
-                    x="163"
-                    y="102"
-                    fontFamily="var(--font-fraunces), serif"
-                    fontStyle="italic"
-                    fontSize="12"
-                    fill="var(--text)"
-                  >
-                    Fornaria &amp; General Bacon
-                  </text>
-                  <text
-                    x="163"
-                    y="116"
-                    fontFamily="var(--font-mono), monospace"
-                    fontSize="9"
-                    fill="var(--text-muted)"
-                  >
-                    AL-101 · Porto de Pedras
-                  </text>
-                </g>
-              </svg>
+              <iframe
+                className="map-frame"
+                src="https://www.google.com/maps?q=-9.1889386,-35.3138771&z=17&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mapa da Fornaria Pizzaria & General Bacon"
+              />
               <div className="btn-row">
                 <a
                   className="btn btn-solid"
@@ -660,15 +599,6 @@ export default function Home() {
           e fumê na Rota dos Milagres.
         </p>
       </footer>
-
-      <div className="sticky-cta" role="complementary" aria-label="Ações rápidas">
-        <a className="btn btn-solid" href={WHATSAPP_URL} target="_blank" rel="noopener">
-          WhatsApp
-        </a>
-        <a className="btn btn-line" href={MAPS_URL} target="_blank" rel="noopener">
-          Como chegar
-        </a>
-      </div>
     </>
   );
 }
