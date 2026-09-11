@@ -5,6 +5,9 @@ const ASSET_PREFIX = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const asset = (path: string) => `${ASSET_PREFIX}${path}`;
 
 const WHATSAPP_URL = "https://wa.me/5582991741699";
+const WHATSAPP_MENU_URL = `${WHATSAPP_URL}?text=${encodeURIComponent(
+  "Olá! Vim do site do General Bacon e gostaria de saber o cardápio 🙂"
+)}`;
 const MAPS_URL =
   "https://www.google.com/maps/place/Fornaria+Pizzaria+%26+General+Bacon/@-9.1889386,-35.3138771,18z/data=!4m6!3m5!1s0x701470038973acf:0xfceed5347215c7d2!8m2!3d-9.1889386!4d-35.3138771!16s%2Fg%2F11y2yhhd10";
 const INSTAGRAM_URL = "https://www.instagram.com/fornariaegeneralbaconpatacho/";
@@ -152,211 +155,24 @@ export default function Home() {
 
         <section id="cardapio" aria-labelledby="menu-title">
           <div className="menu-head">
-            <div>
-              <p className="eyebrow">Cardápio</p>
-              <h2 id="menu-title">Direto da chapa, do forno e da brasa</h2>
-            </div>
+            <p className="eyebrow">Cardápio</p>
+            <h2 id="menu-title">Direto da chapa, do forno e da brasa</h2>
             <p>
-              Um recorte do que mais sai — cardápio completo à mesa e no
-              WhatsApp.
+              Burguers artesanais, smash, pizzas no forno a lenha, risotos e
+              muito mais — chama a gente no WhatsApp que a gente manda o
+              cardápio completo na hora.
             </p>
           </div>
 
-          <div className="menu-grid">
-            <div>
-              <div className="menu-cat">
-                <div className="menu-cat-title">
-                  <h3>Burguers artesanais</h3>
-                  <span className="num">180g</span>
-                </div>
-                <p className="menu-cat-sub">
-                  Carne moída selecionada, bem-justinha, vira uma delícia que
-                  é o hambúrguer de 180g com opções de recheio.
-                </p>
-
-                <div className="menu-item">
-                  <span className="mi-name">
-                    General X
-                    <span className="mi-desc">
-                      Pão, burger 200g, queijo muçarela, presunto, ovo,
-                      alface, tomate, maionese e bacon… claro!
-                    </span>
-                  </span>
-                  <span className="mi-price">R$ 40,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Cheddar
-                    <span className="mi-desc">
-                      Pão, burger 200g, muito queijo cheddar, bacon e
-                      maionese
-                    </span>
-                  </span>
-                  <span className="mi-price">R$ 40,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Brie
-                    <span className="mi-desc">
-                      Pão, burger 200g, saboroso queijo brie, champignon
-                      refogado na manteiga trufada, maionese e geleia de
-                      pimenta
-                    </span>
-                  </span>
-                  <span className="mi-price">R$ 45,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Dacasa
-                    <span className="mi-desc">
-                      Maionese de gorgonzola, queijo muçarela, rúcula e
-                      tomate seco — combinação perfeita
-                    </span>
-                  </span>
-                  <span className="mi-price">R$ 40,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Manteigão
-                    <span className="mi-desc">
-                      Pão, burger 200g, queijo manteiga, geleia de bacon e…
-                      bacon!
-                    </span>
-                  </span>
-                  <span className="mi-price">R$ 40,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Cordeiro
-                    <span className="mi-desc">
-                      Pão, burger 150g, queijo, maionese de ervas e bacon
-                    </span>
-                  </span>
-                  <span className="mi-price">R$ 45,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Gorgonzola
-                    <span className="mi-desc">
-                      Pão, burger 200g, queijo gorgonzola, geleia de morango
-                      e pimenta
-                    </span>
-                  </span>
-                  <span className="mi-price">R$ 45,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Generalzinho
-                    <span className="mi-desc">
-                      Pão, burger 180g, e muito queijo acompanhado
-                    </span>
-                  </span>
-                  <span className="mi-price">R$ 35,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Wagyu
-                    <span className="mi-desc">
-                      Pão, burger 200g, muçarela com salada
-                    </span>
-                  </span>
-                  <span className="mi-price">R$ 55,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Burguer extra
-                    <span className="mi-desc">120g avulso · 180g avulso</span>
-                  </span>
-                  <span className="mi-price">R$ 15,00 / R$ 23,00</span>
-                </div>
-              </div>
-
-              <div className="menu-cat">
-                <div className="menu-cat-title">
-                  <h3>Smash artesanais</h3>
-                  <span className="num">120g</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Simples
-                    <span className="mi-desc">Um burguer 120g</span>
-                  </span>
-                  <span className="mi-price">R$ 30,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Duplo
-                    <span className="mi-desc">Dois burguers 120g</span>
-                  </span>
-                  <span className="mi-price">R$ 35,00</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Triplo
-                    <span className="mi-desc">Três burguers 120g</span>
-                  </span>
-                  <span className="mi-price">R$ 40,00</span>
-                </div>
-                <div className="menu-note">
-                  <strong>Recheios do smash:</strong> Bacon (pão brioche,
-                  muçarela, maionese, salada e bacon) · Cheddar Bacon (pão
-                  brioche, cheddar e bacon) · Espetacular (pão, maionese,
-                  molho de cheddar com farofa de bacon).
-                </div>
-              </div>
-
-              <div className="menu-cat">
-                <div className="menu-cat-title">
-                  <h3>Para compartilhar</h3>
-                  <span className="num">2–4 pessoas</span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Picanha argentina ou uruguaia
-                    <span className="mi-desc">
-                      Acompanha arroz, feijão tropeiro, vinagrete, farofa e
-                      cebola marinada · para 2 ou 4 pessoas
-                    </span>
-                  </span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Risoto de frutos do mar
-                    <span className="mi-desc">
-                      Um dos pratos mais pedidos da casa
-                    </span>
-                  </span>
-                </div>
-                <div className="menu-item">
-                  <span className="mi-name">
-                    Risoto de carne com funghi
-                    <span className="mi-desc">
-                      Citado pelos clientes entre os favoritos
-                    </span>
-                  </span>
-                </div>
-                <div className="menu-note">
-                  + <strong>pizzas artesanais no forno a lenha</strong>,
-                  pratos executivos e sobremesas — cardápio completo à mesa e
-                  pelo WhatsApp.
-                </div>
-              </div>
-            </div>
-
-            <div className="menu-photo-card">
-              <div className="frame">
-                <img
-                  src={asset("/images/cardapio-burguers.jpg")}
-                  alt="Página do cardápio impresso da Fornaria Pizzaria com a lista de burguers artesanais e preços"
-                  width={645}
-                  height={635}
-                />
-              </div>
-              <figcaption>
-                Direto do nosso cardápio impresso — burguers artesanais e
-                smash.
-              </figcaption>
-            </div>
+          <div className="menu-cta">
+            <a
+              className="btn btn-solid menu-cta-btn"
+              href={WHATSAPP_MENU_URL}
+              target="_blank"
+              rel="noopener"
+            >
+              Ver Cardápio
+            </a>
           </div>
         </section>
 

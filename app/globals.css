@@ -231,37 +231,12 @@ nav.links a:hover{ color:var(--accent); }
 }
 
 /* ---------- MENU ---------- */
-.menu-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-bottom:36px;}
-.menu-head h2{ font-size:clamp(1.9rem,3.6vw,2.6rem); }
-.menu-head p{ color:var(--text-muted); max-width:40ch; margin:0; }
-.menu-grid{ display:grid; grid-template-columns:1.3fr .9fr; gap:48px; align-items:start; }
-@media (max-width:900px){ .menu-grid{ grid-template-columns:1fr; } }
-.menu-cat{ margin-bottom:38px; }
-.menu-cat:last-child{ margin-bottom:0; }
-.menu-cat-title{
-  display:flex; align-items:baseline; gap:12px; margin-bottom:4px;
-}
-.menu-cat-title h3{ font-size:1.3rem; font-style:italic; }
-.menu-cat-title .num{ font-family: var(--font-mono), monospace; color:var(--accent); font-size:.85rem; }
-.menu-cat-sub{ color:var(--text-muted); font-size:.85rem; margin-bottom:16px; }
-.menu-item{
-  display:flex; justify-content:space-between; gap:14px; align-items:baseline;
-  padding-block:13px; border-bottom:1px dashed var(--border);
-}
-.menu-item:first-of-type{ border-top:1px dashed var(--border); }
-.mi-name{ font-weight:700; color:var(--text); }
-.mi-desc{ display:block; font-weight:400; color:var(--text-muted); font-size:.82rem; margin-top:2px; max-width:46ch;}
-.mi-price{ font-family: var(--font-mono), monospace; color:var(--accent-strong); white-space:nowrap; font-size:.95rem;}
-.menu-note{
-  margin-top:18px; padding:16px 18px; background:var(--surface-2); border:1px solid var(--border); border-radius:2px;
-  font-size:.85rem; color:var(--text-muted);
-}
-.menu-note strong{ color:var(--text); }
-.menu-photo-card{ position:sticky; top:96px; }
-.menu-photo-card .frame{ border-radius:2px; overflow:hidden; border:1px solid var(--border); transform:rotate(1.2deg); box-shadow:0 22px 40px -20px rgba(20,12,6,.4);}
-.menu-photo-card img{ width:100%; object-fit:cover; }
-.menu-photo-card figcaption{ font-family: var(--font-mono), monospace; font-size:.72rem; color:var(--text-muted); margin-top:14px; text-align:center;}
-@media (max-width:900px){ .menu-photo-card{ position:static; max-width:340px; margin-inline:auto; } }
+.menu-head{ text-align:center; margin-bottom:36px; }
+.menu-head .eyebrow{ justify-content:center; }
+.menu-head h2{ font-size:clamp(1.9rem,3.6vw,2.6rem); margin-top:.2em; }
+.menu-head p{ color:var(--text-muted); max-width:48ch; margin:14px auto 0; }
+.menu-cta{ display:flex; justify-content:center; }
+.menu-cta-btn{ font-size:1rem; padding:1.1em 2em; }
 
 /* ---------- REVIEWS ---------- */
 .rev-top{ display:grid; grid-template-columns:.6fr 1.4fr; gap:48px; align-items:start; margin-bottom:8px;}
