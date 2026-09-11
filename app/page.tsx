@@ -52,9 +52,6 @@ export default function Home() {
                 <strong>3,8 ★</strong> · 144 avaliações no Google
               </span>
               <span>
-                <strong>R$ 40–140</strong> por pessoa
-              </span>
-              <span>
                 <strong>Aberto</strong> até meia-noite
               </span>
             </div>
